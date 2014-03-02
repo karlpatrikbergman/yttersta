@@ -1,5 +1,6 @@
 package se.patrikbergman.yttersta.ejb;
 
+import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
@@ -49,5 +50,10 @@ public class BandServiceBeanTest {
             transaction.rollback();
             fail(e.getMessage());
         }
+    }
+
+    @After
+    public void after() {
+        bandServiceBean = null;
     }
 }

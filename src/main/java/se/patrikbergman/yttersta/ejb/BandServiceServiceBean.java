@@ -14,7 +14,10 @@ import javax.ws.rs.Produces;
 public class BandServiceServiceBean extends CrudServiceBean<BandEntity> {
 
 
+
+
     @GET
+    @Path("/hello")
     @Produces("text/html")
     public String hello() {
         return "Hello";

@@ -1,19 +1,25 @@
-package se.patrikbergman.yttersta.model.entity;
+package se.patrikbergman.yttersta.entity;
 
 import javax.persistence.*;
 
-/**
- * Created by patrikbergman on 2014-02-26.
- */
 @Entity
 @Table(name = "band", schema = "public", catalog = "yttersta")
 public class BandEntity {
+    @Id
+    @SequenceGenerator(name = "band_id_seq", sequenceName = "band_id_seq", allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "band_id_seq")
+    @Column(name = "id", updatable = false)
     private int id;
+
+    @Basic
+    @Column(name = "name")
     private String name;
+
+    @Basic
+    @Column(name = "description")
     private String description;
 
-    @Id
-    @Column(name = "id")
+
     public int getId() {
         return id;
     }
@@ -22,8 +28,7 @@ public class BandEntity {
         this.id = id;
     }
 
-    @Basic
-    @Column(name = "name")
+
     public String getName() {
         return name;
     }
@@ -32,8 +37,6 @@ public class BandEntity {
         this.name = name;
     }
 
-    @Basic
-    @Column(name = "description")
     public String getDescription() {
         return description;
     }
@@ -62,5 +65,15 @@ public class BandEntity {
         result = 31 * result + (name != null ? name.hashCode() : 0);
         result = 31 * result + (description != null ? description.hashCode() : 0);
         return result;
+    }
+
+    @Override
+    public String toString() {
+        final StringBuffer sb = new StringBuffer("BandEntity{");
+        sb.append("id=").append(id);
+        sb.append(", name='").append(name).append('\'');
+        sb.append(", description='").append(description).append('\'');
+        sb.append('}');
+        return sb.toString();
     }
 }

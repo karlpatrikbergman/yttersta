@@ -3,7 +3,7 @@
 
     <persistence-unit name="yttersta-pu">
         <provider>org.hibernate.ejb.HibernatePersistence</provider>
-        <class>se.patrikbergman.yttersta.model.entity.BandEntity</class>
+        <class>se.patrikbergman.yttersta.entity.BandEntity</class>
         <properties>
             <property name="hibernate.connection.url" value="jdbc:postgresql://localhost:5432/yttersta"/>
             <property name="hibernate.connection.driver_class" value="org.postgresql.Driver"/>

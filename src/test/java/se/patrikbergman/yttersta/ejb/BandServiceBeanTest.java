@@ -11,12 +11,12 @@ import javax.persistence.Persistence;
 
 public class BandServiceBeanTest {
 
-    private BandServiceServiceBean bandServiceBean;
+    private BandServiceBean bandServiceBean;
     private EntityTransaction transaction;
 
     @Before
     public void before() {
-        bandServiceBean = new BandServiceServiceBean();
+        bandServiceBean = new BandServiceBean();
         bandServiceBean.em = Persistence.createEntityManagerFactory("yttersta-pu-test").createEntityManager();
         this.transaction = bandServiceBean.em.getTransaction();
     }

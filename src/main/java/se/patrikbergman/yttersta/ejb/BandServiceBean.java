@@ -10,14 +10,10 @@ import javax.ws.rs.Produces;
 @Stateless
 @Remote(CrudService.class)
 @TransactionAttribute(TransactionAttributeType.MANDATORY)
-@Path("band")
-public class BandServiceServiceBean extends CrudServiceBean<BandEntity> {
-
-
-
+@Path("/band")
+public class BandServiceBean extends CrudServiceBean<BandEntity> {
 
     @GET
-    @Path("/hello")
     @Produces("text/html")
     public String hello() {
         return "Hello";

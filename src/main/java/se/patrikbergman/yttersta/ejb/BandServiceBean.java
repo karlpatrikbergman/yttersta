@@ -9,7 +9,6 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 
 @Stateless
-@Remote(CrudService.class)
 @Path("/band")
 public class BandServiceBean extends CrudServiceBean<BandEntity> {
 

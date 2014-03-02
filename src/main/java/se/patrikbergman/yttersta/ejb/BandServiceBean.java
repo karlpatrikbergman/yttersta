@@ -17,8 +17,12 @@ public class BandServiceBean extends CrudServiceBean<BandEntity> {
     @GET
     @Path("/{id:[0-9][0-9]*}")
     @Produces("application/json")
-    public String hello(@PathParam("id") int id) {
-        return "Hello";
+    public BandEntity hello(@PathParam("id") int id) {
+        BandEntity band = new BandEntity();
+        band.setId(id);
+        band.setName("test");
+        band.setDescription("teset");
+        return band;
     }
 
 }

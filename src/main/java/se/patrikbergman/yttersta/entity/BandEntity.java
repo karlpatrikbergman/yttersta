@@ -3,6 +3,10 @@ package se.patrikbergman.yttersta.entity;
 import javax.persistence.*;
 
 @Entity
+@NamedQueries({
+        @NamedQuery(name="Band.findAllBands", query="SELECT b FROM BandEntity b"),
+        @NamedQuery(name="Band.findAllBandsByBandName", query="SELECT b FROM BandEntity b WHERE b.name = :bandName")
+})
 @Table(name = "band", schema = "public", catalog = "yttersta")
 public class BandEntity {
     @Id

@@ -8,6 +8,7 @@ import se.patrikbergman.yttersta.entity.BandEntity;
 
 import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
+import java.util.List;
 
 public class BandServiceBeanTest {
 
@@ -43,6 +44,20 @@ public class BandServiceBeanTest {
         try {
             transaction.begin();
             BandEntity result = bandServiceBean.find(BandEntity.class, new Integer(1));
+            transaction.commit();
+            assertNotNull(result);
+            System.out.println(result);
+        } catch (Exception e) {
+            transaction.rollback();
+            fail(e.getMessage());
+        }
+    }
+
+    @Test
+    public void findBands() {
+        try {
+            transaction.begin();
+            List<BandEntity> result = bandServiceBean.findAll();
             transaction.commit();
             assertNotNull(result);
             System.out.println(result);

@@ -2,6 +2,7 @@ package se.patrikbergman.yttersta.ejb;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import java.util.List;
 
 abstract class CrudServiceBean<T> implements CrudService<T> {
 
@@ -30,6 +31,11 @@ abstract class CrudServiceBean<T> implements CrudService<T> {
     @Override
     public  T update(T t) {
         return (T)this.em.merge(t);
+    }
+
+    @Override
+    public List<T> findWithNamedQuery(String namedQueryName) {
+        return (List<T>) this.em.createNamedQuery(namedQueryName).getResultList();
     }
 }
 

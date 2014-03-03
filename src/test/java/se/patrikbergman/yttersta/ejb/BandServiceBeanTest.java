@@ -39,7 +39,7 @@ public class BandServiceBeanTest {
     }
 
     @Test
-    public void readBand() {
+    public void findBand() {
         try {
             transaction.begin();
             BandEntity result = bandServiceBean.find(BandEntity.class, new Integer(1));

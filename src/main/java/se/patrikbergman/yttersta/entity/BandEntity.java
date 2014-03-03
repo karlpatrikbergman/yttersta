@@ -60,6 +60,10 @@ public class BandEntity {
         return members;
     }
 
+    public void setMembers(List<MusicianEntity> members) {
+        this.members = members;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

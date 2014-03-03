@@ -88,6 +88,7 @@ public class BandEntity {
         sb.append("id=").append(id);
         sb.append(", name='").append(name).append('\'');
         sb.append(", description='").append(description).append('\'');
+        sb.append(", members=").append(members);
         sb.append('}');
         return sb.toString();
     }

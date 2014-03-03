@@ -7,8 +7,12 @@
     <persistence-unit name="primary">
         <jta-data-source>java:jboss/datasources/PostgreSQLDS</jta-data-source>
         <properties>
-            <property name="hibernate.hbm2ddl.auto" value="create-drop" />
+            <!--<property name="hibernate.hbm2ddl.auto" value="create-drop" />-->
             <property name="hibernate.show_sql" value="false" />
+            <property name="hibernate.connection.url" value="jdbc:postgresql://localhost:5432/yttersta"/>
+            <property name="hibernate.connection.driver_class" value="org.postgresql.Driver"/>
+            <property name="hibernate.connection.username" value="adminknskd9m"/>
+            <property name="hibernate.connection.password" value="lsDlWEjyVBw8"/>
         </properties>
     </persistence-unit>
 </persistence>

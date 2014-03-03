@@ -1,6 +1,7 @@
 package se.patrikbergman.yttersta.entity;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @NamedQueries({
@@ -23,6 +24,12 @@ public class BandEntity {
     @Column(name = "description")
     private String description;
 
+    @ManyToMany
+    @JoinTable(
+            name="band_member",
+            joinColumns={@JoinColumn(name="band_id", referencedColumnName="id")},
+            inverseJoinColumns={@JoinColumn(name="musician_id", referencedColumnName="ID")})
+    private List<MusicianEntity> members;
 
     public int getId() {
         return id;
@@ -47,6 +54,10 @@ public class BandEntity {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public List<MusicianEntity> getMembers() {
+        return members;
     }
 
     @Override

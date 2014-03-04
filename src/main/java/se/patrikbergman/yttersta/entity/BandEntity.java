@@ -1,6 +1,7 @@
 package se.patrikbergman.yttersta.entity;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.List;
 
 @Entity
@@ -9,7 +10,9 @@ import java.util.List;
         @NamedQuery(name="Band.findAllBandsByBandName", query="SELECT b FROM BandEntity b WHERE b.name = :bandName")
 })
 @Table(name = "band", schema = "public", catalog = "yttersta")
-public class BandEntity {
+public class BandEntity implements Serializable {
+    private static final long serialVersionUID = 1L;
+
     @Id
     @SequenceGenerator(name = "band_id_seq", sequenceName = "band_id_seq", allocationSize = 1)
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "band_id_seq")
@@ -24,7 +27,7 @@ public class BandEntity {
     @Column(name = "description")
     private String description;
 
-    @ManyToMany
+    @ManyToMany(cascade={}, fetch=FetchType.EAGER)
     @JoinTable(
             name="band_member",
             joinColumns={@JoinColumn(name="band_id", referencedColumnName="id")},

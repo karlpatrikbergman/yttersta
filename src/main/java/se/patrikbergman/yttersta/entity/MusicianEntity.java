@@ -1,13 +1,16 @@
 package se.patrikbergman.yttersta.entity;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 /**
  * Created by patrikbergman on 2014-03-03.
  */
 @Entity
 @Table(name = "musician", schema = "public", catalog = "yttersta")
-public class MusicianEntity {
+public class MusicianEntity implements Serializable {
+    private static final long serialVersionUID = 1L;
+
     private int id;
     private String firstname;
     private String lastname;
